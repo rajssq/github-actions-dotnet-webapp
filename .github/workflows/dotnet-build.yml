@@ -1,0 +1,22 @@
+name: Executar em push e por agendamento
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 * * * *'  
+
+jobs:
+  exemplo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Executar script personalizado
+        run: |
+          echo "Início do script personalizado..."
+          date
+          echo "Script executado com sucesso!"
